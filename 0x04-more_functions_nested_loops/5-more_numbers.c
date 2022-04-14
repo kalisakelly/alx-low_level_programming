@@ -24,4 +24,5 @@ void more_numbers(void)
 			_putchar(units + '0');
 		}
 		_putchar('\n');
-	}
+		}
+}
