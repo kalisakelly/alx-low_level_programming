@@ -36,7 +36,3 @@ printf("Remaining days: %d\n", 365 - day);
 }
 }
 }
-© 2022 GitHub, Inc.
-Terms
-Privacy
-
