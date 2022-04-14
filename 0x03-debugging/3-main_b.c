@@ -25,6 +25,4 @@ print_remaining_days(month, day, year);
 
 return (0);
 }
-© 2022 GitHub, Inc.
-Terms
-
+0 comments on commit 10d73dd
