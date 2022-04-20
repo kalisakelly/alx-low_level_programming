@@ -1,8 +1,8 @@
-include "holberton.h"
+#include "main.h"
 
 /**
  * swap_int - function to swap values contained in two pointers.
- * @a: swapped # 1
+ * @a: pointer to one 
  * @b: swapped # 2
  *
  *Return: Always 0.
