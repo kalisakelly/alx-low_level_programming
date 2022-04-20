@@ -1,4 +1,4 @@
-include "main.h"
+include "holberton.h"
 
 /**
  * swap_int - function to swap values contained in two pointers.
