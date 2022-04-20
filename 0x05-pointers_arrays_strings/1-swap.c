@@ -7,12 +7,10 @@ include "main.h"
  *
  *Return: Always 0.
  */
-
 void swap_int(int *a, int *b)
 {
-int swaper;
+	int temp = *a;
 
-swaper = *a;
-*a = *b;
-*b = swaper;
+	*a = *b;
+	*b = temp;
 }
