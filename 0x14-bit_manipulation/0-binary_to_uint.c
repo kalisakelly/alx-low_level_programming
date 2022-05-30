@@ -1,61 +1,31 @@
 #include "main.h"
 
 /**
- * powX - raises b to p
- * @b: base
- * @p: power
- * Return: b the power of p
- */
-int powX(int b, int p)
-{
-	int prod = 1;
-
-	while (p > 0)
-	{
-		prod *= b;
-		p--;
-	}
-	return (prod);
-}
-
-/**
- * _len - length of a string
- * @s:string
- * Return: lenght of s
- */
-int _len(const char *s)
-{
-	int len = 0;
-
-	while (*s)
-	{
-		len++;
-		s++;
-	}
-	return (len);
-}
-/**
- * binary_to_uint - converts a binary number to an unsigned int
- * @b: input string
- * Return: unsigned decimal conversion, 0 if input is NULL
+ * binary_to_uint - a function that converts a binary
+ *number to an unsigned int.
+ * @b: is a pointer pointing to a string of 0 and 1 chars
+ *
+ * Return: the converted number, or 0 if there is one or more chars in
+ * the string b that is not 0 or 1 if b is NULL.
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int power;
-	int num = 0;
+	unsigned int k = 1, i = 0;
+	int c, len = 0;
 
 	if (!b)
 		return (0);
-	power = _len(b) - 1;
-	while (*b)
+	while (b[len] != '\0')
+		len++;
+	for (c = len - 1; c >= 0; c--)
 	{
-		if (*b != '0' && *b != '1')
+		if (b[c] != '0' && b[c] != '1')
 			return (0);
-
-		if (*b == '1')
-			num += powX(2, power);
-		b++;
-		power--;
+		if (b[c] == '1')
+		{
+			i += k;
+		}
+		k *= 2;
 	}
-	return (num);
+	return (i);
 }
