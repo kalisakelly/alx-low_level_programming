@@ -1,29 +1,73 @@
 #include "main.h"
 /**
-  * binary_to_uint -  function that converts a binary number to
-  *an unsigned int
-  * @b: a pointer that points to a string of 0 and 1 chars
-  * Return: the converted number, or 0 if there is
-  *one or more chars in the string b that is not 0 or 1 if b is NULL
+  *_strlen - returns the length of a string.
+  *@s: pointer to string.
+  *
+  *Return: length.
+  */
+unsigned int _strlen(const char *s)
+{
+	unsigned int i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+/**
+  *getp - returns the value of x to the power of y.
+  *@x: number.
+  *@y: power.
+  *
+  *Return: x to the pow of y.
+  *0 if x < 0.
+  */
+int getp(int x, int y)
+{
+	if (y < 0)
+		return (0);
+	if (y == 0)
+		return (1);
+	if (y == 1)
+		return (x);
+
+	return (x * getp(x, y - 1));
+}
+
+/**
+  *binary_to_uint - converts a binary number to an unsigned int.
+  *@b: pointer to string containing 0 and 1.
+  *
+  *Return: converted number or 0 if b is null or has chars not 0 or 1.
   */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int n = 1, i = 0;
-	int c, len = 0;
+	unsigned int num, length, index;
+	int power;
 
 	if (!b)
 		return (0);
-	while (b[len] != '\0')
-		len++;
-	for (c = len - 1; c >= 0; c--)
+
+	length = _strlen(b);
+	power = 0;
+	num = 0;
+	index = length - 1;
+	while (length > 0)
 	{
-		if (b[c] != '0' && b[c] != '1')
-			return (0);
-		if (b[c] == '1')
+		if (b[index] == 48 || b[index] == 49)
 		{
-			i += n;
+			num = num + ((b[index] - 48) * getp(2, power));
+			power++;
+			index--;
+			length--;
 		}
-		n *= 2;
+		else
+		{
+			return (0);
+		}
 	}
-	return (i);
+	return (num);
 }
